@@ -1,13 +1,9 @@
-var exec = require("child_process").exec;
+var availTool = require("./availTool");
     
 function start(response) {
   console.log("Request handler 'start' was called.");
     
-  exec("ls -lah", function (error, stdout, stderr) {
-    response.writeHead(200, {"Content-Type": "text/plain"});
-    response.write(stdout);
-    response.end();
-  });
+  availTool.getAvail(0, response);
 }
     
 function upload(response) {
