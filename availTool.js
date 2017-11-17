@@ -186,6 +186,7 @@ function printRooms(endRes){
   var output = "";
   for(var i=0;i<rooms.length;i++){
     output += today+i + "<br>";
+    console.log(today+i);
     for(var j=0; j < roomNumbers.length;j++){
         var temp ="";
         for(var k=0;k<32;k++){

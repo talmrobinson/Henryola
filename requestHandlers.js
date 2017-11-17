@@ -6,29 +6,26 @@ function start(response) {
   var html = fs.readFileSync('index.html');
   response.writeHead(200, {'Content-Type': 'text/html'});
   response.end(html);
-  
-  
-  //availTool.getAvail(0, response);
+}
+
+function getMch(response) {
+  console.log("Request handler 'getMch' was called.");
+  response.writeHead(200, {'Content-Type': 'application/json'});
+  availTool.getAvail(0, response);
 }
 
 function UIJS(response) {
-  console.log("Request handler 'start' was called.");
+  console.log("Request handler 'UIJS was called.");
   var myJS = fs.readFileSync('UI.js');
   response.writeHead(200, {'Content-Type': 'text/javascript'});
   response.end(myJS);
-  
-  
-  //availTool.getAvail(0, response);
 }
 
 function AJAXCallsJS(response) {
-  console.log("Request handler 'start' was called.");
+  console.log("Request handler 'AJAXCallsJS' was called.");
   var myJS = fs.readFileSync('myAJAXCalls.js');
   response.writeHead(200, {'Content-Type': 'text/javascript'});
   response.end(myJS);
-  
-  
-  //availTool.getAvail(0, response);
 }
     
 function upload(response) {
@@ -39,6 +36,7 @@ function upload(response) {
 }
     
 exports.start = start;
+exports.getMch = getMch;
 exports.UIJS = UIJS;
 exports.AJAXCallsJS = AJAXCallsJS;
 exports.upload = upload;
