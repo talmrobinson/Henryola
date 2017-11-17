@@ -11,11 +11,21 @@ function start(response) {
   //availTool.getAvail(0, response);
 }
 
-function UI(response) {
+function UIJS(response) {
   console.log("Request handler 'start' was called.");
-  var html = fs.readFileSync('index.html');
-  response.writeHead(200, {'Content-Type': 'text/html'});
-  response.end(html);
+  var myJS = fs.readFileSync('UI.js');
+  response.writeHead(200, {'Content-Type': 'text/javascript'});
+  response.end(myJS);
+  
+  
+  //availTool.getAvail(0, response);
+}
+
+function AJAXCallsJS(response) {
+  console.log("Request handler 'start' was called.");
+  var myJS = fs.readFileSync('myAJAXCalls.js');
+  response.writeHead(200, {'Content-Type': 'text/javascript'});
+  response.end(myJS);
   
   
   //availTool.getAvail(0, response);
@@ -29,5 +39,6 @@ function upload(response) {
 }
     
 exports.start = start;
-exports.UI = UI;
+exports.UIJS = UIJS;
+exports.AJAXCallsJS = AJAXCallsJS;
 exports.upload = upload;
