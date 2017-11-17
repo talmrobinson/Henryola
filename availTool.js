@@ -177,7 +177,7 @@ function addTimeSlot(day, room, time, id){
       rooms[i][Number(room)] = new roomAvailibilityArray();
     }
   }
-   console.log(day);
+   //console.log(day);
   rooms[day][Number(room)][time] = temp; 
 }
 
