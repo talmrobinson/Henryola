@@ -3,8 +3,8 @@ var last = [7,32];
 var avail= Week();
 var days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 var today = new Date();
-var month = today.getMonth();
-console.log(month);
+var myMonth = today.getMonth();
+console.log(myMonth);
 today = today.getDate();
 var rectX;
 var rectY;
@@ -35,13 +35,13 @@ function draw() {
       if (i == 0){
         noStroke();
         fill(color('white'));
-        text((8+Math.floor((j)/2)) +(j%2 == 1?":30":":00"), i*70 +3+rectX/2,j*20 +6);
+        text((8+Math.floor((j)/2)) +(j%2 == 1?":30":":00"), i*70 +3,j*20 +6);
       }
       //day labels
       if (j == 0){
         noStroke();
         fill(color('white'));
-        text( (today+j) +"/" +month, i*70 +3,j*20 +6);
+        text( (today+i) +"/" +myMonth, i*70 +3+rectX/2,j*20 +6);
       }
     }
   }
@@ -76,7 +76,7 @@ function mousePressed() {
 function submitAvail(){ 
   //this is where we SHOULD get open rooms from McHenry store it in an array
   // for now we generate a fake random result for now
-  var library = [Array(32),Array(32),Array(32),Array(32),Array(32),Array(32),Array(32)];
+  var library = mchData['4360'];
   for (var i =0; i<library.length; i++){
     for ( var j =0; j <library[i].length; j++){
       library[i][j] = Math.random() >0.3? true: false;
@@ -89,7 +89,7 @@ function submitAvail(){
                
   for (var i =0; i<library.length; i++){
     for ( var j =0; j <library[i].length; j++){
-      result[i][j] = library[i][j] && avail[i][j];
+      result[i][j] = library[i][j].open && avail[i][j];
       //console.log(library[i][j] && avail[i][j]);
     }
   }
