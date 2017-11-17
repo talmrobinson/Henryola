@@ -74,17 +74,10 @@ function mousePressed() {
 }
 
 function submitAvail(){ 
-  //this is where we SHOULD get open rooms from McHenry store it in an array
-  // for now we generate a fake random result for now
   var library = mchData['4360'];
-  for (var i =0; i<library.length; i++){
-    for ( var j =0; j <library[i].length; j++){
-      library[i][j] = Math.random() >0.3? true: false;
-    }
-  }
   
   // result array to hold results
-  //initialized to all false and will get filled with the TRUE & values from useravalibility and library availibility
+  // initialized to all false and will get filled with the TRUE & values from useravalibility and library availibility
   var result = Week();
                
   for (var i =0; i<library.length; i++){
