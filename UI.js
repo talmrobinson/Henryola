@@ -86,7 +86,7 @@ function submitAvail(){
   for (var i =0; i<library.length; i++){
     for ( var j =0; j <library[i].length; j++){
       result[i][j] = library[i][j] && avail[i][j];
-      console.log(library[i][j] && avail[i][j]);
+      //console.log(library[i][j] && avail[i][j]);
     }
   }
   
