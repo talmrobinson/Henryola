@@ -162,13 +162,13 @@ function roomAvailibilityArray(){
 
 function timeSlot(){
   this.id = 0;
-  this.open = 0;
+  this.open = false;
 }
 
 function addTimeSlot(day, room, time, id){
   var temp = new timeSlot();
   temp.id = id;
-  temp.open = 1;
+  temp.open = true;
   
 
   if (roomNumbers.indexOf(Number(room)) === -1 ){
@@ -190,7 +190,7 @@ function printRooms(endRes){
     for(var j=0; j < roomNumbers.length;j++){
         var temp ="";
         for(var k=0;k<32;k++){
-         temp+=( rooms[i][roomNumbers[j]][k].open ==1? '✅':'❌');  
+         temp+=( rooms[i][roomNumbers[j]][k].open ==true? '✅':'❌');  
         }
         console.log(temp + " " + roomNumbers[j]);
       output += temp + " " + roomNumbers[j] + "<br>";
