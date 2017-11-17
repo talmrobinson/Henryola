@@ -1,9 +1,24 @@
 var availTool = require("./availTool");
+var fs = require('fs');
     
 function start(response) {
   console.log("Request handler 'start' was called.");
-    
-  availTool.getAvail(0, response);
+  var html = fs.readFileSync('index.html');
+  response.writeHead(200, {'Content-Type': 'text/html'});
+  response.end(html);
+  
+  
+  //availTool.getAvail(0, response);
+}
+
+function UI(response) {
+  console.log("Request handler 'start' was called.");
+  var html = fs.readFileSync('index.html');
+  response.writeHead(200, {'Content-Type': 'text/html'});
+  response.end(html);
+  
+  
+  //availTool.getAvail(0, response);
 }
     
 function upload(response) {
@@ -14,4 +29,5 @@ function upload(response) {
 }
     
 exports.start = start;
+exports.UI = UI;
 exports.upload = upload;
