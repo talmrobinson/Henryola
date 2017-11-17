@@ -2,6 +2,10 @@ var cnv;
 var last = [7,32];
 var avail= Week();
 var days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+var today = new Date();
+var month = today.getMonth();
+console.log(month);
+today = today.getDate();
 var rectX;
 var rectY;
 var rectColor;
@@ -37,7 +41,7 @@ function draw() {
       if (j == 0){
         noStroke();
         fill(color('white'));
-        text(days[i], i*70 +3,j*20 +6);
+        text( (today+j) +"/" +month, i*70 +3,j*20 +6);
       }
     }
   }
@@ -92,7 +96,7 @@ function submitAvail(){
   
   console.log(result);
   avail = result;
-  rectColor = color('LightGreen');
+  rectColor = color('SeaGreen');
   redraw();
 }
 
