@@ -7,7 +7,7 @@ $.ajax({
               console.log("Error");
 				/*data recieved*/
 			} else if (data.status === 2) {
-        var mchAvail= JSON.parse(data)
+        var mchAvail= JSON.parse(data);
         console.log("Success!");
         console.log(mchAvail);
 			}

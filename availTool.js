@@ -196,12 +196,9 @@ function printRooms(endRes){
       output += temp + " " + roomNumbers[j] + "<br>";
     }
   }
-    endRes.writeHead(200, {"Content-Type": "text/html; charset=utf-8"});
-    endRes.write("Henryola <br>");
-    endRes.write(output);
-    //kevins texts
-    endRes.write("HELLO");
-    endRes.end("<script> console.log("+JSON.stringify( jsonifyRooms() )+");</script>" );
+    endRes.writeHead(200, {"Content-Type": "application/json"});
+    endRes.write(JSON.stringify( jsonifyRooms() ));
+    endRes.end();
   
   return jsonifyRooms();
 }
