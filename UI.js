@@ -52,10 +52,12 @@ function draw() {
   }
   
   //draw crosshair
-  if (mouseX>width-1 || mouseX<0 || mouseY<0 || mouseY>height-1){
-    fill(color(255,255,255,127));
-    rect(0,Math.floor((mouseY/height)), width,  )
-  }
+  if (mouseX>width-1 || mouseX<0 || mouseY<0 || mouseY>height-1)
+    return
+    
+  fill(color(255,255,255,127));
+  rect(0,Math.floor((mouseY/height)*32)*rectY, width, rectY  );
+  
 }
 
 //function that marks a square as available based on mouse location
