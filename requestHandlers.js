@@ -30,8 +30,9 @@ function AJAXCallsJS(response) {
 
 function bookMch(response) {
   console.log("Request handler 'bookMch' was called.");
-  response.writeHead(200, {'Content-Type': 'application/json'});
-  availTool.getAvail(0, response);
+  response.writeHead(200, {"Content-Type": "text/plain"});
+  response.write("Hello Book");
+  response.end();
 }
 
     
@@ -47,3 +48,4 @@ exports.getMch = getMch;
 exports.UIJS = UIJS;
 exports.AJAXCallsJS = AJAXCallsJS;
 exports.upload = upload;
+exports.bookMch = bookMch;
