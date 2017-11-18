@@ -8,9 +8,9 @@
   },
   "dependencies": {
     "cheerio": "^0.22.0",
+    "phantom": "^2.1.21",
     "request": "^2.83.0",
-    "set-timezone-time": "^0.11.4",
-    "phantomjs-prebuilt": "^2.1.16"
+    "set-timezone-time": "^0.11.4"
   },
   "engines": {
     "node": "4.4.5"
