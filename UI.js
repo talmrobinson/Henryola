@@ -156,3 +156,14 @@ function myRemove(array, element) {
         array.splice(index, 1);
     }
 }
+
+function bookRooms(){
+  var IDList = "";
+  
+  for( var i=0; i<bookingSequence.length; i++){
+    IDList += bookingSequence[i];
+    if(i <bookingSequence.length-1)
+      IDList +="|";
+  }
+  do_booking(IDList);
+}
