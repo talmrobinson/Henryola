@@ -1,14 +1,12 @@
      
 
 var Horseman = require("node-horseman");
-var horseman = new Horseman({
-        injectJquery: true
-    });
+var horseman = new Horseman();
 
-function bookMch(endRes, data){
+function bookMch(endRes, params){
   horseman.open('http://calendar.library.ucsc.edu/booking/mch4')
-  //.wait(1000)
-  .evaluate(function() {
+  .wait(6000)
+  .evaluate(function(params) {
     // this is the AJAX HTTP POST CALL that tries to connect to the McH server and book the room
     // $ means im using the jQuery library and ajax() is their function for making http calls
     $.ajax({
@@ -25,16 +23,17 @@ function bookMch(endRes, data){
 		    } else if (data.status === 2) {
           console.log("Success!");
 		    }
+        horseman.close();
       }, 
       dataType: "json" // the format of the returned file 
     });
 	  return false; // return value is unimportant as of right now
-  }, data );
+  }, params );
   
   endRes.writeHead(200, {"Content-Type": "text/plain"});
   endRes.write("Hello Book");
   endRes.end();
-  console.log(data);
+  console.log(params);
   
   
 }
