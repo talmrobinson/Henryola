@@ -37,7 +37,7 @@ function bookRooms(){
     "fid" : "108" // no idea but this value is always the same
   };
   
-  $.post('https://dune-mandolin.glitch.me/bookMch', parameters, 
+  $.get('https://dune-mandolin.glitch.me/bookMch', parameters, 
     function(returnedData){
          console.log(returnedData);
     });
