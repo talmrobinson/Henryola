@@ -31,7 +31,7 @@ function draw() {
       stroke(color('white'));
       if (avail[i][j])
         fill(rectColor);
-      if (Avail[i][j] === 2 )
+      if (avail[i][j] === 2 )
         fill(color("DarkBlue"));
       rect(i*70,j*20, rectX, rectY);
       
@@ -63,10 +63,18 @@ function toggleAvail(){
     
     if (submited){
       
-      if(avail[day][time] === 1)
+      if(avail[day][time] === 1){
+        avail[day][time] = 2;
+        bookingSequence.push(mchData[day][time].id); 
+      }else if(avail[day][time] === 2){
+        avail[day][time] = 3;
+        myRemove(bookingSequence, mchData[day][time].id)
+      }
+      
       last = [day,time];
       return
     }
+  
     avail[day][time] = !avail[day][time];
     last = [day,time];
 }
@@ -114,4 +122,16 @@ function Week(){
     }
   }
   return temp;
+}
+
+
+
+//source
+//https://blog.mariusschulz.com/2016/07/16/removing-elements-from-javascript-arrays
+function myRemove(array, element) {
+    const index = array.indexOf(element);
+    
+    if (index !== -1) {
+        array.splice(index, 1);
+    }
 }
