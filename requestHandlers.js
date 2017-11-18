@@ -32,9 +32,9 @@ function AJAXCallsJS(response, data) {
 function bookMch(response, data) {
   console.log("Request handler 'bookMch' was called.");
   bookTool.bookMch(response,data);
-  response.writeHead(200, {"Content-Type": "text/plain"});
-  response.write("Hello Book");
-  response.end();
+  //response.writeHead(200, {"Content-Type": "text/plain"});
+  //response.write("Hello Book");
+  //response.end();
 }
 
     
