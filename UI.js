@@ -63,7 +63,7 @@ function toggleAvail(){
       return;
     
     if (submited){
-      if(avail[day][time] == 1 ){
+      if(avail[day][time] == 1  && checkConsecutive(library[day][time].id)){
         avail[day][time] = 2;
         bookingSequence.push(library[day][time].id); 
       }else if(avail[day][time] == 2){
@@ -122,6 +122,11 @@ function Week(){
     }
   }
   return temp;
+}
+
+function checkConsecutive(id){
+  console.log(id);
+  return bookingSequence.includes(id-1) || bookingSequence.includes(id+1) || bookingSequence.length == 0;
 }
 
 
