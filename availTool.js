@@ -1,9 +1,12 @@
 var request = require('request');
 var cheerio = require('cheerio');
+var time = require('set-timezone-time')(Date);
 
 var roomNumbers = [];
 var rooms = [ [],[],[],[],[],[],[] ];
 var today = new Date();
+today = new time.Date();
+today.setTimezone("America/Los_Angeles");
 today = today.getDate();
 
 
