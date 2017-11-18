@@ -27,9 +27,9 @@ function bookRooms(){
     "sid" : IDList, //room id
     "tc": "done", // no idea but this value is always the same
     "gid" : "302", // floor id
-    "fname" : "Tal", // first name
-    "lname" : "Robinson", // last name
-    "email" : "tamarobi@ucsc.edu", //email address
+    "fname" : document.getElementById("fName").value, // first name
+    "lname" : document.getElementById("lName").value, // last name
+    "email" : document.getElementById("email").value, //email address
     "nick" : "cs", // group name
     "q1" : "Undergraduate student", // type of student 
     "q2" : "Study for a class", // reason for booking room

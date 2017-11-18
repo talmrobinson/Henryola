@@ -144,7 +144,8 @@ function checkValidTimeSlot(id){
   if (bookingSequence.length >= 8)
     return false
   
-  return bookingSequence.includes(id-1) || bookingSequence.includes(id+1) || bookingSequence.length == 0 ;
+  return true
+  //return bookingSequence.includes(id-1) || bookingSequence.includes(id+1) || bookingSequence.length == 0 ;
 }
 
 
