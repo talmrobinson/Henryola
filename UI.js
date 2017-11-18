@@ -63,7 +63,7 @@ function toggleAvail(){
       return;
     
     if (submited){
-      if(avail[day][time] == 1  && checkConsecutive(Number(library[day][time].id))){
+      if(avail[day][time] == 1  && checkValidTimeSlot(Number(library[day][time].id))){
         avail[day][time] = 2;
         bookingSequence.push(Number(library[day][time].id)); 
       }else if(avail[day][time] == 2){
@@ -111,6 +111,11 @@ function submitAvail(){
   avail = result;
   rectColor = color('SeaGreen');
   redraw();
+  
+  var myID = document.getElementById("submitButton");
+  myID.style.display = "none";
+  myID = document.getElementById("bookButton");
+  myID.style.display = "block";
 }
 
 // function to make a 24*7 array
@@ -124,9 +129,12 @@ function Week(){
   return temp;
 }
 
-function checkConsecutive(id){
+function checkValidTimeSlot(id){
   console.log(id);
-  return bookingSequence.includes(id-1) || bookingSequence.includes(id+1) || bookingSequence.length == 0;
+  if (bookingSequence.length >= 8)
+    return false
+  
+  return bookingSequence.includes(id-1) || bookingSequence.includes(id+1) || bookingSequence.length == 0 ;
 }
 
 
@@ -135,7 +143,7 @@ function checkConsecutive(id){
 //https://blog.mariusschulz.com/2016/07/16/removing-elements-from-javascript-arrays
 function myRemove(array, element) {
     const index = array.indexOf(element);
-    
+  
     if (index !== -1) {
         array.splice(index, 1);
     }
