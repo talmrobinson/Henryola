@@ -165,5 +165,5 @@ function bookRooms(){
     if(i <bookingSequence.length-1)
       IDList +="|";
   }
-  do_booking(IDList);
+  //do_booking(IDList);
 }
