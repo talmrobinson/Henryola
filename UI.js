@@ -11,6 +11,7 @@ var rectY;
 var rectColor;
 var submited = false;
 var bookingSequence = [];
+var library;
 
 function setup() {
   cnv = createCanvas(490, 640);
@@ -62,13 +63,12 @@ function toggleAvail(){
       return;
     
     if (submited){
-      
-      if(avail[day][time] === 1){
+      if(avail[day][time] == 1 ){
         avail[day][time] = 2;
-        bookingSequence.push(mchData[day][time].id); 
-      }else if(avail[day][time] === 2){
-        avail[day][time] = 3;
-        myRemove(bookingSequence, mchData[day][time].id)
+        bookingSequence.push(library[day][time].id); 
+      }else if(avail[day][time] == 2){
+        avail[day][time] = 1;
+        myRemove(bookingSequence, library[day][time].id);
       }
       
       last = [day,time];
@@ -94,7 +94,7 @@ function mousePressed() {
 
 function submitAvail(){ 
   submited = true;
-  var library = mchData['4360'];
+  library = mchData['4360'];
   
   // result array to hold results
   // initialized to all false and will get filled with the TRUE & values from useravalibility and library availibility
