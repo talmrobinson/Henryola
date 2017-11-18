@@ -15,7 +15,7 @@ var library;
 
 function setup() {
   cnv = createCanvas(490, 640);
-  frameRate(32);
+  frameRate(12);
   textAlign(LEFT, TOP);
   rectX = width/avail.length;
   rectY = height/avail[0].length;
@@ -74,17 +74,21 @@ function toggleAvail(){
       if(avail[day][time] == 1  && checkValidTimeSlot(Number(library[day][time].id))){
         avail[day][time] = 2;
         bookingSequence.push(Number(library[day][time].id)); 
+        
       }else if(avail[day][time] == 2){
         avail[day][time] = 1;
         myRemove(bookingSequence, Number(library[day][time].id));
       }
       
       last = [day,time];
+      
+      redraw(); 
       return
     }
   
     avail[day][time] = !avail[day][time];
     last = [day,time];
+  redraw(); 
 }
 
 // mouse functionality
@@ -92,12 +96,10 @@ function mouseReleased() {
   last = [7,32];
 }
 function mouseDragged() {
-    toggleAvail();
-    redraw(); 
+    toggleAvail(); 
 }
 function mousePressed() {
     toggleAvail();
-    redraw(); 
 }
 
 function submitAvail(){ 
