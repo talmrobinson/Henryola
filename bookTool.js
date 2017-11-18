@@ -1,14 +1,35 @@
      
 
 var Horseman = require("node-horseman");
-var horseman = new Horseman();
+var horseman = new Horseman({
+        injectJquery: true
+    });
 
 function bookMch(endRes, data){
-  horseman
-  .open('http://calendar.library.ucsc.edu/booking/mch4')
-  //.do(function(done){setTimeout(done,6000);})
-  .evaluate(do_booking(), data )
-	horseman.close();
+  horseman.open('http://calendar.library.ucsc.edu/booking/mch4')
+  //.wait(1000)
+  .evaluate(function() {
+    // this is the AJAX HTTP POST CALL that tries to connect to the McH server and book the room
+    // $ means im using the jQuery library and ajax() is their function for making http calls
+    $.ajax({
+      type: "POST", //type of HTTP call.. there are more just google HTTP call types
+      url: "http://calendar.library.ucsc.edu/process_roombookings.php?m=booking_full", // the server to connect to 
+      crossDomain: true, // this just signifies that the origin of the http call is coming from a different server than the destination
+      data: jQuery.param(params), // this is the data to be sent with the call, jquery.param() formats 'parameters' into something nice
+      success: function(data) {
+		    /*error*/
+		    if (data.status === 1) {
+          console.log("Error Email");
+		      errorAlert(data.msg);
+          /*Mediation, Tentative or Confirmed*/
+		    } else if (data.status === 2) {
+          console.log("Success!");
+		    }
+      }, 
+      dataType: "json" // the format of the returned file 
+    });
+	  return false; // return value is unimportant as of right now
+  }, data );
   
   endRes.writeHead(200, {"Content-Type": "text/plain"});
   endRes.write("Hello Book");
