@@ -9,6 +9,8 @@ today = today.getDate();
 var rectX;
 var rectY;
 var rectColor;
+var submited = false;
+var bookingSequence = [];
 
 function setup() {
   cnv = createCanvas(490, 640);
@@ -28,7 +30,9 @@ function draw() {
       fill(color(200, 200, 200));
       stroke(color('white'));
       if (avail[i][j])
-        fill(rectColor); 
+        fill(rectColor);
+      if (Avail[i][j] === 2 )
+        fill(color("DarkBlue"));
       rect(i*70,j*20, rectX, rectY);
       
       //time labels
@@ -56,6 +60,13 @@ function toggleAvail(){
     var time = Math.floor((mouseY/height)*32);
     if (day == last[0] && time == last[1])
       return;
+    
+    if (submited){
+      
+      if(avail[day][time] === 1)
+      last = [day,time];
+      return
+    }
     avail[day][time] = !avail[day][time];
     last = [day,time];
 }
@@ -74,6 +85,7 @@ function mousePressed() {
 }
 
 function submitAvail(){ 
+  submited = true;
   var library = mchData['4360'];
   
   // result array to hold results
