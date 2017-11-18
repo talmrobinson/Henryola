@@ -1,7 +1,7 @@
 var mchData;
 $.ajax({
   type: "GET", //type of HTTP call.. there are more just google HTTP call types
-  url: "https://dune-mandolin.glitch.me/getMch", // the server to connect to 
+  url: "http://dune-mandolin.glitch.me/getMch", // the server to connect to 
   success: function(data) {
         console.log("Success!");
         console.log(data);
@@ -10,6 +10,17 @@ $.ajax({
   dataType: "json" // the format of the returned file 
 });
 
+var headers = {
+        'Origin': 'http://calendar.library.ucsc.edu',
+        'Accept-Encoding': 'gzip, deflate',
+        'Accept-Language': 'en-US,en;q=0.8',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36',
+        'Accept': 'application/json, text/javascript, */*; q=0.01',
+        'Referer': 'http://calendar.library.ucsc.edu/booking/mch3',
+        'X-Requested-With': 'XMLHttpRequest',
+        'Connection': 'keep-alive'
+  }
+
 function do_booking(sidList) {
   // the following values are usually pulled from the form after selecting a room
   // on the McH website, each  clickable square has an associated 9digit number, or SID, associated with it
@@ -17,6 +28,7 @@ function do_booking(sidList) {
   // for example  567075885|567075886|567075887|567075888
   var parameters = {
     "sid" : sidList, //room id
+    "headers" : headers,
     "tc": "done", // no idea but this value is always the same
     "gid" : "302", // value for the floor
     "fname" : "Tal", // first name
@@ -38,7 +50,7 @@ function do_booking(sidList) {
   $.ajax({
   type: "POST", //type of HTTP call.. there are more just google HTTP call types
     //headers: headers1, I removed this line because it was throwing lots of errors when we try to use the false origin headers
-  url: "https://calendar.library.ucsc.edu/process_roombookings.php?m=booking_full", // the server to connect to 
+  url: "http://calendar.library.ucsc.edu/process_roombookings.php?m=booking_full", // the server to connect to 
   crossDomain: true, // this just signifies that the origin of the http call is coming from a different server than the destination
   data: jQuery.param(parameters), // this is the data to be sent with the call, jquery.param() formats 'parameters' into something nice
   success: function(data) {
