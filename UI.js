@@ -65,10 +65,10 @@ function toggleAvail(){
     if (submited){
       if(avail[day][time] == 1  && checkConsecutive(library[day][time].id)){
         avail[day][time] = 2;
-        bookingSequence.push(library[day][time].id); 
+        bookingSequence.push(Number(library[day][time].id)); 
       }else if(avail[day][time] == 2){
         avail[day][time] = 1;
-        myRemove(bookingSequence, library[day][time].id);
+        myRemove(bookingSequence, Number(library[day][time].id));
       }
       
       last = [day,time];
