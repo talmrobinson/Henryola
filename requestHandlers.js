@@ -27,6 +27,13 @@ function AJAXCallsJS(response) {
   response.writeHead(200, {'Content-Type': 'text/javascript'});
   response.end(myJS);
 }
+
+function bookMch(response) {
+  console.log("Request handler 'bookMch' was called.");
+  response.writeHead(200, {'Content-Type': 'application/json'});
+  availTool.getAvail(0, response);
+}
+
     
 function upload(response) {
   console.log("Request handler 'upload' was called.");
