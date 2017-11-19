@@ -42,6 +42,38 @@ conventions presented in this text*)
 # availTool / getAvail()
 availTool.js contains our code used for scraping the henryola server it consists of the function getAvail() and helper functions that it needs. Essentially uses cheerio to scrape the Mchenry website floor by floor, and return the availible rooms.
 
+Helper functions:
+	timeToIndex(time):
+		Converts string representing time (representing time of day) to an index for an array
+		for the rooms array.
+
+		called by: GetAvail()
+		
+		 
+
+	roomAvailibilityArray():
+		Constructor for a room availibility array object
+
+
+	timeSlot():	
+		constructor for a time slot object
+
+	addTimeSlot(day, room, time, id):
+		adds a timeslot to a room availibility array
+		
+		called by: GetAvail()	
+
+
+	printRooms(endRes):
+		Prints the scraped data to the server console
+		
+		called by GetAvail()
+
+	jsonifyRooms():
+		puts the room availibility object into a json file
+
+		called by PrintRooms()
+
 # bookTool.js
 bookTool.js contains a function, bookMch(), to open a headless browser and execute our room booking function, do_booking(). This headless browers approach was needed to bypass CORS issues when making ajax calls to the UCSC website.
 
