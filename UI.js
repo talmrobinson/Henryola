@@ -161,7 +161,8 @@ function checkValidTimeSlot(id){
 
 function roomSelect(value){
   focusedRoom = value;
-  andAvails();
+  if (submited)
+    andAvails();
   
 }
 

@@ -20,14 +20,7 @@
       <input type="text" id="fName" placeholder="First name"></input> 
       <input type="text" id="lName" placeholder="Last name"></input>
       <input type="text" id="email" placeholder="Email: xxxx@ucsc.edu"></input><br>
-      <button onclick="submitAvail()" type="button" id="submitButton">Submit</button>
-      <button onclick="bookRooms()" type="button" id="bookButton" style="display:none">Book</button>
-      <div id="sketch-holder">
-        <!-- Our sketch will go here! -->
-      </div>
-    </p>
-    </div>
-      <div style ="width: 50%; float:left;">
+      Room: 
       <select onChange="roomSelect(this.value);">
       <option value="4360">4360</option>
       <option value="4362">4362</option>
@@ -38,7 +31,13 @@
       <option value="4372">4372</option>
       <option value="4374">4374</option>
       <option value="4376">4376</option>
-      </select>
+      </select><br>
+      <button onclick="submitAvail()" type="button" id="submitButton">Submit</button>
+      <button onclick="bookRooms()" type="button" id="bookButton" style="display:none">Book</button>
+      <div id="sketch-holder">
+        <!-- Our sketch will go here! -->
       </div>
+    </p>
+    </div>
   </body>
 </html>
