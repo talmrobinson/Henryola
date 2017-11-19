@@ -1,6 +1,7 @@
 var cnv;  
 var last = [7,32];
 var avail= Week();
+var usrAvail;
 var days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 var today = new Date();
 var myMonth = today.getMonth();
@@ -108,30 +109,12 @@ function mousePressed() {
 }
 
 function submitAvail(){ 
-  submited = true;
-  library = mchData[focusedRoom];
+  usrAvail = avail;
   
-  // result array to hold results
-  // initialized to all false and will get filled with the TRUE & values from useravalibility and library availibility
-  var result = Week();
-               
-  for (var i =0; i<library.length; i++){
-    for ( var j =0; j <library[i].length; j++){
-      result[i][j] = library[i][j].open && avail[i][j];
-      //console.log(library[i][j] && avail[i][j]);
-    }
-  }
-  
-  console.log(result);
-  avail = result;
-  rectColor = color('SeaGreen');
-  redraw();
-  
-  var myID = document.getElementById("submitButton");
-  myID.style.display = "none";
-  myID = document.getElementById("bookButton");
-  myID.style.display = "block";
+  andAvails();
 }
+
+function andAvails(){}
 
 // function to make a 24*7 array
 function Week(){
@@ -151,6 +134,11 @@ function checkValidTimeSlot(id){
   
   return true
   //return bookingSequence.includes(id-1) || bookingSequence.includes(id+1) || bookingSequence.length == 0 ;
+}
+
+function roomSelect(value){
+  focusedRoom = value;
+  
 }
 
 
