@@ -108,13 +108,36 @@ function mousePressed() {
     toggleAvail();
 }
 
-function submitAvail(){ 
+function submitAvail(){
+  submited = true;
   usrAvail = avail;
-  
   andAvails();
 }
 
-function andAvails(){}
+function andAvails(){
+  library = mchData[focusedRoom];
+  
+  // result array to hold results
+  // initialized to all false and will get filled with the TRUE & values from useravalibility and library availibility
+  var result = Week();
+               
+  for (var i =0; i<library.length; i++){
+    for ( var j =0; j <library[i].length; j++){
+      result[i][j] = library[i][j].open && usrAvail[i][j];
+      //console.log(library[i][j] && avail[i][j]);
+    }
+  }
+  
+  console.log(result);
+  avail = result;
+  rectColor = color('SeaGreen');
+  redraw();
+  
+  var myID = document.getElementById("submitButton");
+  myID.style.display = "none";
+  myID = document.getElementById("bookButton");
+  myID.style.display = "block";
+}
 
 // function to make a 24*7 array
 function Week(){
@@ -138,6 +161,7 @@ function checkValidTimeSlot(id){
 
 function roomSelect(value){
   focusedRoom = value;
+  andAvails();
   
 }
 
