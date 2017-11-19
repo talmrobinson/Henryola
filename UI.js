@@ -12,6 +12,7 @@ var rectColor;
 var submited = false;
 var bookingSequence = [];
 var library;
+var focusedRoom = '4360';
 
 function setup() {
   cnv = createCanvas(490, 640);
@@ -108,7 +109,7 @@ function mousePressed() {
 
 function submitAvail(){ 
   submited = true;
-  library = mchData['4360'];
+  library = mchData[focusedRoom];
   
   // result array to hold results
   // initialized to all false and will get filled with the TRUE & values from useravalibility and library availibility
