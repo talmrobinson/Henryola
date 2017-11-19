@@ -12,6 +12,7 @@
     <script src="UI.js" defer></script>
   </head>
   <body>
+    <div style ="width: 50%;">
     <h1>HENRYOLA</h1>
     <p>
       Enter your avalibility into the calendar, then hit Submit.<br>
@@ -20,7 +21,11 @@
       <input type="text" id="lName" placeholder="Last name"></input>
       <input type="text" id="email" placeholder="Email: xxxx@ucsc.edu"></input><br>
       <button onclick="submitAvail()" type="button" id="submitButton">Submit</button>
-      <button onclick="bookRooms()" type="button" id="bookButton" style="display:none">Book</button>
+      <button onclick="bookRooms()" type="button" id="bookButton" style="display:none">Book</button><br>
+      <div id="sketch-holder">
+        <!-- Our sketch will go here! -->
+      </div>
     </p>
+    </div>
   </body>
 </html>

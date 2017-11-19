@@ -206,9 +206,6 @@ function printRooms(endRes){
   return jsonifyRooms();
 }
 
-
-exports.getAvail = getAvail;
-
 // converts the rooms array into a JSON object that has data objects where the keys are the room numbers
 // and the objects themselves are 7*32 arrays where each index has a room ID and a T/F value
 function jsonifyRooms(){
@@ -224,3 +221,5 @@ function jsonifyRooms(){
   
   return tempRooms;
 }
+
+exports.getAvail = getAvail;

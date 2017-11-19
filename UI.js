@@ -15,6 +15,9 @@ var library;
 
 function setup() {
   cnv = createCanvas(490, 640);
+ 
+  // Move the canvas so it's inside our <div id="sketch-holder">.
+  cnv.parent('sketch-holder');
   frameRate(12);
   textAlign(LEFT, TOP);
   rectX = width/avail.length;
@@ -96,6 +99,7 @@ function mouseReleased() {
   last = [7,32];
 }
 function mouseDragged() {
+  
     toggleAvail(); 
 }
 function mousePressed() {
