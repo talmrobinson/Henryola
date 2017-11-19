@@ -42,7 +42,9 @@ conventions presented in this text*)
 # availTool / getAvail()
 availTool.js contains our code used for scraping the henryola server it consists of the function getAvail() and helper functions that it needs. Essentially uses cheerio to scrape the Mchenry website floor by floor, and return the availible rooms.
 
-Helper functions:
+
+	Helper functions:
+	
 	timeToIndex(time):
 		Converts string representing time (representing time of day) to an index for an array
 		for the rooms array.
