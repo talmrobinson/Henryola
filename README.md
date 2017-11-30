@@ -3,7 +3,7 @@
 
 <- click (logs) to view the output form the scrapped data # HENRYOLA IS #1
 
-# index.js /
+# index.js 
 index.js can be thought of as our main() and is used to "bootstrap our project" 
 so that we can see all that is running to deploy "Henryola".
 index calls server.js, router.js and requestHandlers.js with a require 
@@ -80,3 +80,9 @@ myAJAXCalls.js contains the two functions for making AJAX calls from the UI/Brow
 
 # router.js 
 router.js routes a request through a path and tells the user if the page can not be found.
+
+# UI.js
+
+# index.html
+
+
