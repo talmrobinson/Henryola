@@ -38,7 +38,7 @@ function draw() {
       if (avail[i][j])
         fill(rectColor);
       if (avail[i][j] === 2 )
-        fill(color("DarkBlue"));
+        fill(color("green"));
       rect(i*70,j*20, rectX, rectY);
       
       //time labels
@@ -130,7 +130,7 @@ function andAvails(){
   
   console.log(result);
   avail = result;
-  rectColor = color('SeaGreen');
+  rectColor = color('red');
   redraw();
   
   var myID = document.getElementById("submitButton");
