@@ -25,7 +25,7 @@ function setup() {
   rectX = width/avail.length;
   rectY = height/avail[0].length;
   noLoop();
-  rectColor = color('magenta');
+  rectColor = color('yellow');
 }
 
 // this function is called after the mouse is clicked/dragged or the submit button is pressed
