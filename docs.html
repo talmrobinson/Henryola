@@ -36,8 +36,8 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
                    <a class="w3-bar-item w3-button w3-hover-black" href="#Henryola_Documentation">Henryola Documentation</a>
                      <a class="w3-bar-item w3-button w3-hover-black w3-small" href="#Getting_Started">Getting Started</a>
                        <a class="w3-bar-item w3-button w3-hover-black" href="#">Overview</a>
-                         <a class="w3-bar-item w3-button w3-hover-black" href="#">Link</a>
-                           <a class="w3-bar-item w3-button w3-hover-black" href="#">Link</a>
+                         <a class="w3-bar-item w3-button w3-hover-black" href="#">index.html</a>
+                           <a class="w3-bar-item w3-button w3-hover-black" href="#">multistep.js</a>
                              <a class="w3-bar-item w3-button w3-hover-black" href="#">Link</a>
    </nav>
 
@@ -117,19 +117,53 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
                                                                                                                                                                                                                                                                                                                                                                        </p>
                                                                                                                                                                                                                                                                                                                                                                              
                                                                                                                                                                                                                                                                                                                                                                              <p>
-                                                                                                                                                                                                                                                                                                                                                                                   <b>The Screen Scraping and headless browsing</b>: Pertains to the libraries and algorithms used to both get availability of rooms from the library and book the rooms with the user's preferences.  The availability uses a javascript library called cheerio for screen scraping the right tag to find available rooms.  The book functionality is handled by a NodeJS library called node-horseman which allows for a headless browser post requests.  The users preferences are stored in a boolean array.  The Mchenry’s available room times are stored in an identical array.  The two arrays are then ANDed to see where there exists overlap.  These files include:
-                                                                                                                                                                                                                                                                                                                                                                                           <code>availTool.js</code>, <code>bookTool.js</code>
-                                                                                                                                                                                                                                                                                                                                                                                                 </p>
-                                                                                                                                                                                                                                                                                                                                                                                                     </tation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum
-                                                                                                                                                                                                                                                                                                                                                                                                             dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboritation ullamco laboris nisi ut aliquip ex ea commodxercitation ullamco laboritation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum
-                                                                                                                                                                                                                                                                                                                                                                                                                     dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboritation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum
-                                                                                                                                                                                                                                                                                                                                                                                                                             dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim venim veniam, quis nostrud exercitation ullamco laboritation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum
-                                                                                                                                                                                                                                                                                                                                                                                                                                     dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboritation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum
-                                                                                                                                                                                                                                                                                                                                                                                                                                             dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magnaagna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboritation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum
-                                                                                                                                                                                                                                                                                                                                                                                                                                                     dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud ex-teal">Heading</h1>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                         <p>Lorem ipsum dolor sit amet, consec w3_open() {
-                                                                                                                                                                                                                                                                                                                                                                                                                                                             if (mySidebar.style.display === 'block') {
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                     mySidebar.style.display = 'none';
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                             overlayBg.style.display = "none";
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 } else {
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         mySidebar.style.display 
+                                                                                                                                                                                                                                                                                                                                                                                   t any further requests.  In the case of Henryola, the entire application is run in the browser from the single index URL, therefore our index is responsible for all the html in which the user will enter information and it calls the files/functions to stylize the page such as multistep.js,style.css, and the calendar canvas from UI.js.  The design is heavily influenced by the Designify tutorial on single page  multistep development https://codepen.io/designify-me/pen/qrJWpG.
+                                                                                                                                                                                                                                                                                                                                                                                           <pre>
+          <!-- fieldsets -->
+              &#60fieldset&#62
+                  &#60h2 class="fs-title"&#62Personal Info&#60/h2&#62
+                  &#60h3 class="fs-subtitle"&#62Who are you?&#60/h3&#62
+                  &#60input type="text" name="fName" id="fName" placeholder="First Name="next" id="infobutton" class="next action-button"
+                                  value="Next" disabled/&#62
+              &#60/fieldset&#62
+              &#60fieldset&#62
+          ss="w3-text-teal">multistep.js</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum
+        dolor sit amet, e magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+  </div>
+  
+  
+  
+  <div class="w3-row">
+    <div class="w3-twothird w3-container">
+      <h1 class="w3-text-teal">Heading</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum
+        dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboritation ullamco laboris nisi ut aliquip ex ea coconsequat. Lorem ipsum
+        dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboritation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum
+        dolor sit amet, consec ut aliquip ex ea commodo consequat. Lorem ipsum
+        dolor ation ullamco laboris nisi ut aliquip ex ea commodo consequat. ercitation ullamco laboritation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum
+        dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt utainer w3-theme-l2 w3-padding">
+      <h4>Docyola is the documentation page for <a href="https://dune-mandolin.glitch.me/">Henryola</a></h4>
+    </div>
+  </footer>
+
+<!-- END MAIN -->
+</div>
+
+<script>
+// Get the Sidebar
+var mySidebar = document.getElementById("mySidebar");
+
+// Get the DIV with overlay effect
+var overlayBg = document.getElementById("myOverlay");
+
+// Toggle between showing and hiding the sidebar, and add overlay effect
+function w3_open() {
+      if (mySidebar.style.display === 'block') {
+                mySidebar.style.display = 'none';
+                        overlayBg.style.display = "none";
+                            } else {
+                                      mySidebar.style.display = 'block';
+                                              overlayBg.style.display = "block";
+                                               
