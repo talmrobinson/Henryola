@@ -1,117 +1,209 @@
-var cnv;  
 var last = [7,32];
-var avail= Week();
-var usrAvail;
-var days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+var andAvail= Week();
+var usrAvail = Week();
+var library;
 var today = new Date();
 var myMonth = today.getMonth();
 console.log(myMonth);
 today = today.getDate();
-var rectX;
-var rectY;
-var rectColor;
-var submited = false;
-var bookingSequence = [];
-var library;
-var focusedRoom = '4360';
-
-function setup() {
-  cnv = createCanvas(490, 640);
- 
-  // Move the canvas so it's inside our <div id="sketch-holder">.
-  cnv.parent('sketch-holder');
-  frameRate(12);
-  textAlign(LEFT, TOP);
-  rectX = width/avail.length;
-  rectY = height/avail[0].length;
-  noLoop();
-  rectColor = color('yellow');
+var weekday = ['S','M','T','W','T','F','S'];
+var days = [];
+for (var i = 0; i <7;i++){
+  var temp = new Date()
+  temp.setDate(temp.getDate()+i)
+  days.push(weekday[ temp.getDay() ]+' '+(myMonth+1)+"/"+(today+i));
 }
+var rectX = 40;
+var rectY = 15;
+var rectColor;
+var submitted = false;
+var bookingSequence = [];
+var focusedRoom = '4360';
+var userColor;
+var availColor;
+var bookColor;
+var columnOffset = 50;
+var rowOffset = 15;
 
-// this function is called after the mouse is clicked/dragged or the submit button is pressed
-function draw() {
-  // draw week
-  for (var i =0; i<avail.length; i++){
-    for ( var j =0; j <avail[i].length; j++){
-      fill(color(200, 200, 200));
-      stroke(color('white'));
-      if (avail[i][j])
-        fill(rectColor);
-      if (avail[i][j] === 2 )
-        fill(color("green"));
-      rect(i*70,j*20, rectX, rectY);
-      
-      //time labels
-      if (i == 0){
-        noStroke();
-        fill(color('white'));
-        text((8+Math.floor((j)/2)) +(j%2 == 1?":30":":00"), i*70 +3,j*20 +6);
-      }
-      //day labels
-      if (j == 0){
-        noStroke();
-        fill(color('white'));
-        text( (today+i) +"/" +myMonth, i*70 +3+rectX/2,j*20 +6);
+var s = function( p ) {
+  p.setup = function() {
+    p.createCanvas(280 +columnOffset, 480 +rowOffset);
+    p.textFont("Montserrat");
+
+    p.textAlign(p.LEFT, p.TOP);
+    p.noLoop();
+    userColor = p.color('#6398F3');
+  }
+
+  // this function is called after the mouse is clicked/dragged or the submit button is pressed
+  p.draw = function() {
+    p.noStroke();
+    p.fill(p.color(255));
+    p.rect(0,0,p.width,p.height);
+
+    p.fill(p.color('#CCC'));
+    p.rect(columnOffset,rowOffset,p.width,p.height);
+
+    // draw week
+    for (var i =0; i<7; i++){
+      for ( var j =0; j <32; j++){
+        var xLoc =i*(p.width-columnOffset)/7 +columnOffset;
+        var yLoc =j*(p.height-rowOffset)/32 +rowOffset;
+
+        if (usrAvail[i][j]){
+          p.fill(userColor);
+          p.rect(xLoc, yLoc,rectX, rectY); 
+        }
+
+        //time labels
+        if (i == 0 && j%2==0){
+          p.fill(p.color('#666'));
+          p.text((8+Math.floor((j)/2)) -(j>8?12:0) +(j%2 == 1?":30":":00"), 0 +3,j*(p.height-rowOffset)/32 +rowOffset +3);
+        }
+        ////day labels
+        if (j == 0){
+          p.textSize(10);
+          p.fill(p.color('#666'));
+          p.text( days[i], i*(p.width-columnOffset)/7 +columnOffset +2, 0 +6);
+          p.textSize(12);
+        }
       }
     }
+    //draw grid
+    p.stroke(p.color('white'));
+    for (var i =0; i<7; i++){
+      p.line(i*(p.width-columnOffset)/7 +columnOffset,rowOffset,i*(p.width-columnOffset)/7 +columnOffset,p.height);
+    }
+    for ( var j =0; j <32; j++){
+      p.line(columnOffset,(p.height-rowOffset)*j/32 +rowOffset,p.width,(p.height-rowOffset)*j/32 +rowOffset);
+    }
   }
-  
-  //draw crosshair
-  if (mouseX>width-1 || mouseX<0 || mouseY<0 || mouseY>height-1)
-    return
-    
-  fill(color(255,255,255,127));
-  rect(0,Math.floor((mouseY/height)*32)*rectY, width, rectY  );
-  
+
+  // mouse functionality
+  p.mouseReleased = function() {
+    last = [7,32];
+  }
+  p.mouseDragged = function() {
+      if(toggleTimeSlot(p.mouseX,p.mouseY, 'step1'))
+        p.redraw();
+  }
+  p.mousePressed = function() {
+      if(toggleTimeSlot(p.mouseX,p.mouseY, 'step1'))
+        p.redraw();
+  }
+}
+var myp51 = new p5(s, 'c1');
+
+
+var t = function( p ) {
+  p.setup = function() {
+    p.createCanvas(280 +columnOffset, 480 +rowOffset);
+    p.textFont("Montserrat");
+
+    p.textAlign(p.LEFT, p.TOP);
+    p.noLoop();
+    availColor = p.color('#B5A0F7');
+    bookColor = p.color('#6398f3');
+  }
+
+  // this function is called after the mouse is clicked/dragged or the submit button is pressed
+  p.draw = function() {
+    p.noStroke();
+    p.fill(p.color(255));
+    p.rect(0,0,p.width,p.height);
+
+    p.fill(p.color('#CCC'));
+    p.rect(columnOffset,rowOffset,p.width,p.height);
+
+    // draw week
+    for (var i =0; i<7; i++){
+      for ( var j =0; j <32; j++){
+        var xLoc =i*(p.width-columnOffset)/7 +columnOffset;
+        var yLoc =j*(p.height-rowOffset)/32 +rowOffset;
+
+        if (submitted){
+          if (andAvail[i][j] == 2){
+            p.fill(bookColor);
+            p.rect(xLoc, yLoc,rectX, rectY); 
+          }
+          if (andAvail[i][j] == 1){
+            p.fill(availColor);
+            p.rect(xLoc, yLoc,rectX, rectY); 
+          }
+        }
+
+        //time labels
+        if (i == 0 && j%2==0){
+          p.fill(p.color('#666'));
+          p.text((8+Math.floor((j)/2)) -(j>8?12:0) +(j%2 == 1?":30":":00"), 0 +3,j*(p.height-rowOffset)/32 +rowOffset +3);
+        }
+        ////day labels
+        if (j == 0){
+          p.textSize(10);
+          p.fill(p.color('#666'));
+          p.text( days[i], i*(p.width-columnOffset)/7 +columnOffset +2, 0 +6);
+          p.textSize(12);
+        }
+      }
+    }
+    //draw grid
+    p.stroke(p.color('white'));
+    for (var i =0; i<7; i++){
+      p.line(i*(p.width-columnOffset)/7 +columnOffset,rowOffset,i*(p.width-columnOffset)/7 +columnOffset,p.height);
+    }
+    for ( var j =0; j <32; j++){
+      p.line(columnOffset,(p.height-rowOffset)*j/32 +rowOffset,p.width,(p.height-rowOffset)*j/32 +rowOffset);
+    }
+  }
+
+  // mouse functionality
+  p.mouseReleased = function() {
+    last = [7,32];
+  }
+  p.mouseDragged = function() {
+      if(toggleTimeSlot(p.mouseX,p.mouseY, 'step2'))
+        p.redraw();
+  }
+  p.mousePressed = function() {
+      if(toggleTimeSlot(p.mouseX,p.mouseY, 'step2'))
+        p.redraw();
+  }
+}
+var myp52 = new p5(t, 'c2');
+
+
+function submitAvail(){
+  submitted = true;
+  andAvails();
+  bookingSequence = [];
+  myp52.redraw();
 }
 
 //function that marks a square as available based on mouse location
-function toggleAvail(){
-  if (mouseX>width-1 || mouseX<0 || mouseY<0 || mouseY>height-1)
-      return;
+function toggleTimeSlot(mouseX, mouseY, step){
+  if (mouseX>330-1 || mouseX<columnOffset || mouseY<rowOffset || mouseY>495-1)
+      return false;
     
-    var day = Math.floor((mouseX/width)*7);
-    var time = Math.floor((mouseY/height)*32);
+    var day = Math.floor( ( (mouseX-columnOffset)/280 ) *7 );
+    var time =Math.floor( ( (mouseY-rowOffset)/480 ) *32 );
     if (day == last[0] && time == last[1])
-      return;
+      return false;
     
-    if (submited){
-      if(avail[day][time] == 1  && checkValidTimeSlot(Number(library[day][time].id))){
-        avail[day][time] = 2;
+    if ( step == 'step2' && submitted){
+      if(andAvail[day][time] == 1  && checkValidTimeSlot(Number(library[day][time].id))){
+        andAvail[day][time] = 2;
         bookingSequence.push(Number(library[day][time].id)); 
         
-      }else if(avail[day][time] == 2){
-        avail[day][time] = 1;
+      }else if(andAvail[day][time] == 2){
+        andAvail[day][time] = 1;
         myRemove(bookingSequence, Number(library[day][time].id));
       }
-      
-      last = [day,time];
-      
-      redraw(); 
-      return
+      last = [day,time] 
+      return true;
     }
-  
-    avail[day][time] = !avail[day][time];
+    usrAvail[day][time] = !usrAvail[day][time];
     last = [day,time];
-  redraw(); 
-}
-
-// mouse functionality
-function mouseReleased() {
-  last = [7,32];
-}
-function mouseDragged() {
-  
-    toggleAvail(); 
-}
-function mousePressed() {
-    toggleAvail();
-}
-
-function submitAvail(){
-  submited = true;
-  usrAvail = avail;
-  andAvails();
+    return true;
 }
 
 function andAvails(){
@@ -129,14 +221,7 @@ function andAvails(){
   }
   
   console.log(result);
-  avail = result;
-  rectColor = color('red');
-  redraw();
-  
-  var myID = document.getElementById("submitButton");
-  myID.style.display = "none";
-  myID = document.getElementById("bookButton");
-  myID.style.display = "block";
+  andAvail = result;
 }
 
 // function to make a 24*7 array
@@ -161,12 +246,11 @@ function checkValidTimeSlot(id){
 
 function roomSelect(value){
   focusedRoom = value;
-  if (submited)
+  if (submitted){
     andAvails();
-  
+    myp52.redraw();
+  }
 }
-
-
 
 //source
 //https://blog.mariusschulz.com/2016/07/16/removing-elements-from-javascript-arrays
