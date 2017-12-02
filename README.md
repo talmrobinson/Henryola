@@ -58,3 +58,6 @@ requestHandlers.js contains the code to get data from the McHenry website. The f
 
 # UI.js
 UI.js contains the code to create the table to book the rooms and allow the user to drag down the cursor to fill in appropriate times. The function submitAvail() allows the user to submit available times by using the provided table. toggleTimeSlot() contains the code to allow the user to use their cursor to click on the boxes in the table. andAvails() contains the code to compare between the available times for the rooms in McHenry and the times that the user inputted earlier. Week() displays the entire week on the table. checkValidTimeSlot() contains the code to display the results from andAvails() onto the table. roomSelect() has the code to allow the user to select the rooms at the times that are available. myRemove() has the code to remove the rooms at the time that the user does not want to book.
+
+# docs.html
+docs.html contains the link for the the documentation and the User Installation Guide.
