@@ -4,15 +4,15 @@ var time = require('set-timezone-time')(Date);
 
 var roomNumbers = [];
 var rooms = [ [],[],[],[],[],[],[] ];
-var today = new Date();
-today = new time.Date();
-today.setTimezone("America/Los_Angeles");
-today = today.getDate();
 
 
 function getAvail(offset, endRes) {
-  //console.log(today+offset);
-  request("http://calendar.library.ucsc.edu/rooms_acc.php?gid=302&d=2017-11-" +(today+offset)+ "&cap=0", function (error, response, html) {
+  var day = new Date();
+  day = day.setTimezone("America/Los_Angeles");
+  day.setDate(day.getDate()+offset);
+  console.log(day.getYear()+"-"+(day.getMonth()+1)+"-"+day.getDate());
+
+  request("http://calendar.library.ucsc.edu/rooms_acc.php?gid=302&d="+(day.getYear()-100)+"-"+(day.getMonth()+1)+"-"+day.getDate()+ "&cap=0", function (error, response, html) {
     if (!error && response.statusCode == 200) {
       //console.log(html);
     }
@@ -187,9 +187,12 @@ function addTimeSlot(day, room, time, id){
 //printing function
 function printRooms(endRes){
   var output = "";
+  var day = new Date();
+  day = day.setTimezone("America/Los_Angeles");
   for(var i=0;i<rooms.length;i++){
-    output += today+i + "<br>";
-    console.log(today+i);
+    day.setDate(day.getDate() + 1);
+    output += day.getDate()+ "<br>";
+    console.log(day.getDate());
     for(var j=0; j < roomNumbers.length;j++){
         var temp ="";
         for(var k=0;k<32;k++){

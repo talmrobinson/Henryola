@@ -22,6 +22,20 @@ function UIJS(response, data) {
   response.end(myJS);
 }
 
+function getCSS(response, data) {
+  console.log("Request handler 'getCSS( was called.");
+  var myJS = fs.readFileSync('style.css');
+  response.writeHead(200, {'Content-Type': 'text/css'});
+  response.end(myJS);
+}
+
+function getMS(response, data) {
+  console.log("Request handler 'getMS was called.");
+  var myJS = fs.readFileSync('multistep.js');
+  response.writeHead(200, {'Content-Type': 'text/javascript'});
+  response.end(myJS);
+}
+
 function AJAXCallsJS(response, data) {
   console.log("Request handler 'AJAXCallsJS' was called.");
   var myJS = fs.readFileSync('myAJAXCalls.js');
@@ -32,22 +46,21 @@ function AJAXCallsJS(response, data) {
 function bookMch(response, data) {
   console.log("Request handler 'bookMch' was called.");
   bookTool.bookMch(response,data);
-  //response.writeHead(200, {"Content-Type": "text/plain"});
-  //response.write("Hello Book");
-  //response.end();
 }
 
-    
-function upload(response, data) {
-  console.log("Request handler 'upload' was called.");
-  response.writeHead(200, {"Content-Type": "text/plain"});
-  response.write("Hello Upload");
-  response.end();
+function docs(response, data) {
+  console.log("Request handler 'docs' was called.");
+  var html = fs.readFileSync('docs.html');
+  response.writeHead(200, {'Content-Type': 'text/html'});
+  response.end(html);
 }
+
     
 exports.start = start;
 exports.getMch = getMch;
 exports.UIJS = UIJS;
+exports.getCSS = getCSS;
+exports.getMS = getMS;
 exports.AJAXCallsJS = AJAXCallsJS;
-exports.upload = upload;
 exports.bookMch = bookMch;
+exports.docs = docs;
