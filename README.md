@@ -7,5 +7,5 @@ To view our documentation containing our "Installation and User Guide" visit our
 https://dune-mandolin.glitch.me/docs
 
 # Who is Henryola
-Kevin Crum, Sahithi Narla, Richard Selmon, Tal Robinson <sub>Scott Davis</sub><sub><sub>honorable mention</sub></sub>
+Kevin Crum, Sahithi Narla, Richard Selmon, Tal Robinson Scott Davis<sub><sub>honorable mention</sub></sub>
 ![Alt Text](https://78.media.tumblr.com/278e8ccbb093da8693487bc8421f4d89/tumblr_nho6biz87b1u1nuzeo1_500.gif)
