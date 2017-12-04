@@ -261,3 +261,23 @@ function myRemove(array, element) {
         array.splice(index, 1);
     }
 }
+
+//Function that books a lucky room for a lucky student
+function imFeelingLucky(){
+  var library = mchData[focusedRoom];
+  var room_id; 
+  //loop through and save the first available room
+  //Exit loop when you find it
+  for(var i = 0; i < 7; i++){
+    for(var j=0; j < 32; j++){       
+      if (library[i][j].open == true){
+        room_id = library[i][j].id;
+        i = 7;
+        j = 32;
+      }
+    }
+  }
+  
+   bookingSequence = [room_id];
+   bookRooms();
+}
