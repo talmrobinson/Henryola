@@ -8,3 +8,4 @@ https://dune-mandolin.glitch.me/docs
 
 # Who is Henryola
 Kevin Crum, Sahithi Narla, Richard Selmon, Tal Robinson
+![Alt Text](https://78.media.tumblr.com/278e8ccbb093da8693487bc8421f4d89/tumblr_nho6biz87b1u1nuzeo1_500.gif)
