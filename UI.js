@@ -64,7 +64,7 @@ var s = function( p ) {
         if (j == 0){
           p.textSize(10);
           p.fill(p.color('#666'));
-          p.text( days[i], i*(p.width-columnOffset)/7 +columnOffset +2, 0 +6);
+          p.text( days[i], i*(p.width-columnOffset)/7 +columnOffset +2, 0);
           p.textSize(12);
         }
       }
@@ -141,7 +141,7 @@ var t = function( p ) {
         if (j == 0){
           p.textSize(10);
           p.fill(p.color('#666'));
-          p.text( days[i], i*(p.width-columnOffset)/7 +columnOffset +2, 0 +6);
+          p.text( days[i], i*(p.width-columnOffset)/7 +columnOffset +2, 0);
           p.textSize(12);
         }
       }
@@ -278,6 +278,12 @@ function imFeelingLucky(){
     }
   }
   
+   if (room_id === undefined){
+     alert("Sorry, the library is fully booked!");
+     return
+   }
+  
    bookingSequence = [room_id];
+   console.log(room_id);
    bookRooms();
 }
