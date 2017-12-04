@@ -1,3 +1,4 @@
+<pre>
 Working Prototype Known Problems Report
 
 Henryola
@@ -20,3 +21,4 @@ Index.html
     We check if the user entered an email address has @ucsc.edu
     We check if the user actually selects at least one slot to book
     But there does not exist a feature to check if the User’s email address is real.  This is considered a bug because the page says the words “Success!\n Check your email to confirm booking”, and the use of the word success implies that the booking was successful which is not the case.
+</pre>
