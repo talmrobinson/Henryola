@@ -9,243 +9,253 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
-html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
-.w3-sidebar {
+  html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
+  .w3-sidebar {
   z-index: 3;
-}
-
+  }
 </style>
+
 <body>
+  <!-- Navbar -->
+  <!-- Navbar refers to the top header bar on top of the site.  This contains the fa fa bar and
+       a link back to henryola.  It is responsive and refers to screen size                  -->
+   <div class="DocNavBar">
+    <div class="w3-bar w3-theme w3-top w3-right-align">
+      <a class="w3-bar-item w3-button w3-right w3-hover-white w3-large w3-theme-l1" href="javascript:void(0)" onclick="w3_open()"><i class="fa fa-bars"></i></a>
 
-<!-- Navbar -->
- <div class="DocNavBar">
-  <div class="w3-bar w3-theme w3-top w3-right-align">
-    <a class="w3-bar-item w3-button w3-right w3-hover-white w3-large w3-theme-l1" href="javascript:void(0)" onclick="w3_open()"><i class="fa fa-bars"></i></a>
-
-    <a href="https://dune-mandolin.glitch.me/" class="w3-bar-item w3-right">back to Henrola</a>
-   </div>
-</div>
-
-<!-- Sidebar -->
-<nav class="w3-sidebar w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left" id="mySidebar">
-  <a href="javascript:void(0)" onclick="w3_close()" class="w3-right w3-xlarge w3-padding-large w3-hover-black w3-hide-large" title="Close Menu">
-    <i class="fa fa-remove"></i>
-  </a>
-  <h4 class="w3-bar-item"><b>Contents</b></h4>
-  
-  <a class="w3-bar-item w3-button w3-hover-black" href="#Henryola_Documentation">Henryola Documentation</a>
-  <a class="w3-bar-item w3-button w3-hover-black w3-small" href="#Getting_Started">Getting Started</a>
-  <a class="w3-bar-item w3-button w3-hover-black" href="#Overview">Overview</a>
-  <a class="w3-bar-item w3-button w3-hover-black" href="#">index.html</a>
-  <a class="w3-bar-item w3-button w3-hover-black" href="#">multistep.js</a>
-  <a class="w3-bar-item w3-button w3-hover-black" href="#">Link</a>
-</nav>
-
-<!-- Overlay effect when opening sidebar on small screens -->
-<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
-
-<!-- Main content: shift it to the right by 250 pixels when the sidebar is visible -->
-<div class="Doc-main" style="margin-left:250px">
-  <!-- important that the dic id="heading_href" is put in the first div for proper padding -->
-  <div id="Henryola_Documentation" class="w3-row w3-twothird w3-padding-32">
-    <div class="w3-panel">
-      <h1 class="w3-text-teal">
-        Henryola Documentation
-      </h1>
-      <p>
-        Henryola Documentation
-
-        Henryola is an a free web application that assists those with an UCSC email address in scheduling private study rooms at the Mchenry Library.  Henryola makes the tedious process of obtaining room appoints easy and lets you spend more time with your studies.  
-
-        The Mchenry has their own site for booking rooms but it requires that you check the availability of each room <i>individually</i> per day.  Furthermore, come time book, one may only book one room at a time.  Henryola gives you a broad view of both the entire week and all of the rooms on every floor.
-        Henryola is an a free web application that assits those with an UCSC email address in scheduling private study rooms at the Mchenry Library.  The Mchenry has their own site for booking rooms but it requires that you check the availablity of each room individually 
-      </p>
-      <p>
-        <a href="https://github.com/talmrobinson/GroupGit">Our Github</a>
-      </p>
-    </div>
+      <a href="https://dune-mandolin.glitch.me/" class="w3-bar-item w3-right">back to Henrola</a>
+      <a href="https://github.com/talmrobinson/GroupGit" class="w3-bar-item w3-right">Github</a>
+     </div>
   </div>
 
-  
-    <div id="Getting_Started" class="w3-row">
-    <div class="w3-twothird w3-container">
-      <h1 class="w3-text-teal">
-        Getting Started</h1>
-      <h4 class="w3-text-teal">
-        Installation and User Guide  
-      </h4>
-      
-      <p>
-        Getting started with Henryola is easy.  So easy in fact that it was designed with hopes of being intuitive enough to not need many onscreen instruction or user’s manuals.
-      </p>
-      <p>
-        Simply navigate to our URL.
-      </p>
-      <p>
-        From our home screen you will be prompted to enter your information such as name and @ucsc.edu address.  Do not worry, we are not collecting any of that data, we are simply giving it to the library in order for their room booking tool to work.  <br>
-        <img src="https://cdn.glitch.com/17ee9678-98ed-4865-8048-2478b43e166b%2Fpersonal_info.jpg?1512360046145" alt= "Personal Information Window" width="500" height="400">
-      </p>
-      <p>
-        Afterwards you will be shown a grid representing a calendar for the week.  Drag, tap, click the cells to select times that you would like to have the room booked.  Cells with the color blue indicate available time slots.  When you have filled your availability, click next. 
-        <img src="https://cdn.glitch.com/17ee9678-98ed-4865-8048-2478b43e166b%2Favailability.jpg?1512347455827" alt= "Availability" width="500" height="600">
-      </p>
-      <p>
-        The next screen is the same grid but this time it is showing you what time slots are available by showing the time in purple.  Browse and select the rooms  and times you’d like to have booked.  The rooms staged to be booked for you will turn dark blue. If you see only gray squares on all rooms, then there were no available times that worked with your preferences.  When you have your desired rooms selected click book.
-        <img src="https://cdn.glitch.com/17ee9678-98ed-4865-8048-2478b43e166b%2Fbook_page_1.jpg?1512347450937" alt= "Book a Room" width="500" height="600">
-        <img src="https://cdn.glitch.com/17ee9678-98ed-4865-8048-2478b43e166b%2Fbook_page_2.jpg?1512347446046" alt= "Book a Room 2" width="500" height="600">
-      </p>
-      <p>
-        And Henryola! You successfully booked a room.  To confirm your booking, access your UCSC email inbox and confirm/deny your appointment within 2 hours.  Note: There is a delay (approx 20 - 40 seconds) for receiving the email from the school server.  Simply refresh your inbox until you see the email.
-        <img src="https://cdn.glitch.com/17ee9678-98ed-4865-8048-2478b43e166b%2Fdone_page.jpg?1512347434967" alt= "Done" width="500" height="200">
-      </p>
-    </div>
-  </div>
-  
-  
-  <div id="Overview" class="w3-row">
-    <div class="w3-twothird w3-container">
-      <h1 class="w3-text-teal">
-        Overview</h1>
-      <p>
-        Henryola can essentially be broken into 3 large pieces which will be discussed in greater detail 
-      </p>
-      <p>
-        <b>The server/hosting of the site</b>: pertains to all technologies implemented to make allow our site to exist on the web, our url handlers, and our post handlers. We used www.glitch.com to host our website.  Glitch is a free website that  lets you deploy web applications using NodeJs.  You are given a URL and a text editor that your whole team can edit in.  Projects can be previewed and then pushed to git.  Glitch had a tutorial book called “The Node Beginner Book” by Manuel Kiessling https://node-beginner.glitch.me.  We used this book as a framework for setting up our index.js and router. Node.js As our Javascript framework for handling server side programming. The Backend files are as follows:
- 
-      
-<code>index.js</code>, <code>myAJAXCalls.js</code>, <code>package.json</code>, <code>requestHandlers.js</code> ,<code>router.js</code>, and <code>server.js</code>
-      </p>
+  <!-- Sidebar -->
+  <!-- Sidebar refers to the table of contents on the side.  They are linked with href="#name"
+       and the ID="#same name" is used to reference link.  See Henryola Documentation      -->
+  <nav class="w3-sidebar w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left" id="mySidebar">
+    <a href="javascript:void(0)" onclick="w3_close()" class="w3-right w3-xlarge w3-padding-large w3-hover-black w3-hide-large" title="Close Menu">
+      <i class="fa fa-remove"></i>
+    </a>
+    <h4 class="w3-bar-item"><b>Contents</b></h4>
 
-      <p>
-        <b>The User Interface</b>: pertains to how the user interacts with our site.  The UI encompases the user experiance from opening the index of the website to the final booking result.  Code under the UI umbrella involves how the user enters information in a way that is easy for them and useful to our program, the visual appeal of the website and the functionality of navigating the site.  These files include:
-        <code>Docs.html</code>, <code>index.html</code>, <code>multistep.js</code>, <code>style.css</code>
-      </p>
-      
-      <p>
-      <b>The Screen Scraping and headless browsing</b>: Pertains to the libraries and algorithms used to both get availability of rooms from the library and book the rooms with the user's preferences.  The availability uses a javascript library called cheerio for screen scraping the right tag to find available rooms.  The book functionality is handled by a NodeJS library called node-horseman which allows for a headless browser post requests.  The users preferences are stored in a boolean array.  The Mchenry’s available room times are stored in an identical array.  The two arrays are then ANDed to see where there exists overlap.  These files include:
-        <code>availTool.js</code>, <code>bookTool.js</code>
-      </p>
+    <a class="w3-bar-item w3-button w3-hover-black" href="#Henryola_Documentation">Henryola Documentation</a>
+    <a class="w3-bar-item w3-button w3-hover-black" href="#Getting_Started">Getting Started</a>
+    <a class="w3-bar-item w3-button w3-hover-black" href="#Overview">Overview</a>
+    <a class="w3-bar-item w3-button w3-hover-black" href="#Index">index.html</a>
+    <a class="w3-bar-item w3-button w3-hover-black" href="#Multi_Step">multistep.js</a>
+    <a class="w3-bar-item w3-button w3-hover-black" href="#Style">style.css</a>
+    <a class="w3-bar-item w3-button w3-hover-black" href="#UI">UI.js</a>
+    <a class="w3-bar-item w3-button w3-hover-black" href="#availTools">availTools.js</a>
+    <a class="w3-bar-item w3-button w3-hover-black" href="#AJAX">myAJAXCalls.js</a>
+  </nav>
+
+  <!-- Overlay effect when opening sidebar on small screens -->
+  <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+  <!-- Main content: shift it to the right by 250 pixels when the sidebar is visible -->
+  <!-- Refers to main text body on the site.  All information -->
+  <div class="Doc-main" style="margin-left:250px">
+    <!-- important that the dic id="heading_href" is put in the first div for proper padding -->
+    <div id="Henryola_Documentation" class="w3-row w3-twothird w3-padding-32">
+      <div class="w3-panel">
+        <h1 class="w3-text-teal">
+          Henryola Documentation
+        </h1>
+        <p>
+          Henryola Documentation
+
+          Henryola is an a free web application that assists those with an UCSC email address in scheduling private study rooms at the Mchenry Library.  Henryola makes the tedious process of obtaining room appoints easy and lets you spend more time with your studies.  
+
+          The Mchenry has their own site for booking rooms but it requires that you check the availability of each room <i>individually</i> per day.  Furthermore, come time book, one may only book one room at a time.  Henryola gives you a broad view of both the entire week and all of the rooms on every floor.
+          Henryola is an a free web application that assits those with an UCSC email address in scheduling private study rooms at the Mchenry Library.  The Mchenry has their own site for booking rooms but it requires that you check the availablity of each room individually 
+        </p>
+        <p>
+          <a href="https://github.com/talmrobinson/GroupGit">Our Github</a>
+        </p>
+      </div>
     </div>
-  </div>
-  
-  
-  
-  
+
+
     <div class="w3-row">
-    <div class="w3-twothird w3-container">
-      <h1 class="w3-text-teal">index.html</h1>
-      <p>
-        Index.html, as per convention, marks the first page a user will load when interacting with our site.  Index refers to the URL without any further requests.  In the case of Henryola, the entire application is run in the browser from the single index URL, therefore our index is responsible for all the html in which the user will enter information and it calls the files/functions to stylize the page such as multistep.js,style.css, and the calendar canvas from UI.js.  The design is heavily influenced by the Designify tutorial on single page  multistep development https://codepen.io/designify-me/pen/qrJWpG.
-        <pre>
-          <!-- fieldsets -->
-              &#60fieldset&#62
-                  &#60h2 class="fs-title"&#62Personal Info&#60/h2&#62
-                  &#60h3 class="fs-subtitle"&#62Who are you?&#60/h3&#62
-                  &#60input type="text" name="fName" id="fName" placeholder="First Name"/&#62
-                  &#60input type="text" name="lName" id="lName" placeholder="Last Name"/&#62
-                  &#60input type="text" name="email" id="email" placeholder="Email@ucsc.edu"/&#62
-                  &#60input type="button" name="next" id="infobutton" class="next action-button"
-                                  value="Next" disabled/&#62
-              &#60/fieldset&#62
-              &#60fieldset&#62
-                  &#60h2 class="fs-title"&#62Availability&#60/h2&#62
-                  &#60h3 class="fs-subtitle"&#62Whats your week look like?&#60/h3&#62
-                  &#60div id="c1" style="margin-left: -15px;"&#62
-                  &#60!-- Our sketch will go here! --&#62
-                  &#60/div&#62
-                  &#60input type="button" name="previous" class="previous action-button-previous"
-                 value="Previous"/&#62
-      </pre>
+      <div id="Getting_Started" class="w3-twothird w3-container w3-padding-64">
+        <h1 class="w3-text-teal">
+          Getting Started</h1>
+        <h4 class="w3-text-teal">
+          Installation and User Guide  
+        </h4>
 
-      <p>
-      Above we see a general overview of the html that affects i/o and where external files are called to stylize the page.  For example after “What’s your week look like” we see the import of the “c1” canvas used to draw the map.  
-      </p>
-
-      </p>
+        <p>
+          Getting started with Henryola is easy.  So easy in fact that it was designed with hopes of being intuitive enough to not need many onscreen instruction or user’s manuals.
+        </p>
+        <p>
+          Simply navigate to our URL.
+        </p>
+        <p>
+          From our home screen you will be prompted to enter your information such as name and @ucsc.edu address.  Do not worry, we are not collecting any of that data, we are simply giving it to the library in order for their room booking tool to work.  <br>
+          <img src="https://cdn.glitch.com/17ee9678-98ed-4865-8048-2478b43e166b%2Fpersonal_info.jpg?1512360046145" alt= "Personal Information Window" width="500" height="400">
+        </p>
+        <p>
+          Afterwards you will be shown a grid representing a calendar for the week.  Drag, tap, click the cells to select times that you would like to have the room booked.  Cells with the color blue indicate available time slots.  When you have filled your availability, click next. 
+          <img src="https://cdn.glitch.com/17ee9678-98ed-4865-8048-2478b43e166b%2Favailability.jpg?1512347455827" alt= "Availability" width="500" height="600">
+        </p>
+        <p>
+          The next screen is the same grid but this time it is showing you what time slots are available by showing the time in purple.  Browse and select the rooms  and times you’d like to have booked.  The rooms staged to be booked for you will turn dark blue. If you see only gray squares on all rooms, then there were no available times that worked with your preferences.  When you have your desired rooms selected click book.
+          <img src="https://cdn.glitch.com/17ee9678-98ed-4865-8048-2478b43e166b%2Fbook_page_1.jpg?1512347450937" alt= "Book a Room" width="500" height="600">
+          <img src="https://cdn.glitch.com/17ee9678-98ed-4865-8048-2478b43e166b%2Fbook_page_2.jpg?1512347446046" alt= "Book a Room 2" width="500" height="600">
+        </p>
+        <p>
+          And Henryola! You successfully booked a room.  To confirm your booking, access your UCSC email inbox and confirm/deny your appointment within 2 hours.  Note: There is a delay (approx 20 - 40 seconds) for receiving the email from the school server.  Simply refresh your inbox until you see the email.
+          <img src="https://cdn.glitch.com/17ee9678-98ed-4865-8048-2478b43e166b%2Fdone_page.jpg?1512347434967" alt= "Done" width="500" height="200">
+        </p>
+      </div>
     </div>
-  </div>
-  
-  
+
+
+    <div id="Overview" class="w3-row w3-padding-32">
+      <div class="w3-twothird w3-container">
+        <h1 class="w3-text-teal">
+          Overview</h1>
+        <p>
+          Henryola can essentially be broken into 3 large pieces which will be discussed in greater detail 
+        </p>
+        <p>
+          <b>The server/hosting of the site</b>: pertains to all technologies implemented to make allow our site to exist on the web, our url handlers, and our post handlers. We used www.glitch.com to host our website.  Glitch is a free website that  lets you deploy web applications using NodeJs.  You are given a URL and a text editor that your whole team can edit in.  Projects can be previewed and then pushed to git.  Glitch had a tutorial book called “The Node Beginner Book” by Manuel Kiessling https://node-beginner.glitch.me.  We used this book as a framework for setting up our index.js and router. Node.js As our Javascript framework for handling server side programming. The Backend files are as follows:
+
+
+  <code>index.js</code>, <code>myAJAXCalls.js</code>, <code>package.json</code>, <code>requestHandlers.js</code> ,<code>router.js</code>, and <code>server.js</code>
+        </p>
+
+        <p>
+          <b>The User Interface</b>: pertains to how the user interacts with our site.  The UI encompases the user experiance from opening the index of the website to the final booking result.  Code under the UI umbrella involves how the user enters information in a way that is easy for them and useful to our program, the visual appeal of the website and the functionality of navigating the site.  These files include:
+          <code>Docs.html</code>, <code>index.html</code>, <code>multistep.js</code>, <code>style.css</code>
+        </p>
+
+        <p>
+        <b>The Screen Scraping and headless browsing</b>: Pertains to the libraries and algorithms used to both get availability of rooms from the library and book the rooms with the user's preferences.  The availability uses a javascript library called cheerio for screen scraping the right tag to find available rooms.  The book functionality is handled by a NodeJS library called node-horseman which allows for a headless browser post requests.  The users preferences are stored in a boolean array.  The Mchenry’s available room times are stored in an identical array.  The two arrays are then ANDed to see where there exists overlap.  These files include:
+          <code>availTool.js</code>, <code>bookTool.js</code>
+        </p>
+      </div>
+    </div>
+
+
+
+      <div id="Index" class="w3-row w3-padding-32">
+      <div class="w3-row">
+      <div class="w3-twothird w3-container">
+        <h1 class="w3-text-teal">index.html</h1>
+        <p>
+          Index.html, as per convention, marks the first page a user will load when interacting with our site.  Index refers to the URL without any further requests.  In the case of Henryola, the entire application is run in the browser from the single index URL, therefore our index is responsible for all the html in which the user will enter information and it calls the files/functions to stylize the page such as multistep.js,style.css, and the calendar canvas from UI.js.  The design is heavily influenced by the Designify tutorial on single page  multistep development https://codepen.io/designify-me/pen/qrJWpG.
+          <pre>
+            <!-- fieldsets -->
+                &#60fieldset&#62
+                    &#60h2 class="fs-title"&#62Personal Info&#60/h2&#62
+                    &#60h3 class="fs-subtitle"&#62Who are you?&#60/h3&#62
+                    &#60input type="text" name="fName" id="fName" placeholder="First Name"/&#62
+                    &#60input type="text" name="lName" id="lName" placeholder="Last Name"/&#62
+                    &#60input type="text" name="email" id="email" placeholder="Email@ucsc.edu"/&#62
+                    &#60input type="button" name="next" id="infobutton" class="next action-button"
+                                    value="Next" disabled/&#62
+                &#60/fieldset&#62
+                &#60fieldset&#62
+                    &#60h2 class="fs-title"&#62Availability&#60/h2&#
+                    &#60h3 class="fs-subtitle"&#62Whats your week look like?&#60/h3&#62
+                    &#60div id="c1" style="margin-left: -15px;"&#62
+                    &#60!-- Our sketch will go here! --&#62
+                    &#60/div&#62
+                    &#60input type="button" name="previous" class="previous action-button-previous"
+                   value="Previous"/&#62
+        </pre>
+
+        <p>
+        Above we see a general overview of the html that affects i/o and where external files are called to stylize the page.  For example after “What’s your week look like” we see the import of the “c1” canvas used to draw the map.  
+        </p>
+
+        </p>
+      </div>
+    </div>
+    </div>
+
+      <div id="Multi_Step" class="w3-row w3-padding-32">
+      <div class="w3-row">
+      <div class="w3-twothird w3-container">
+        <h1 class="w3-text-teal">multistep.js</h1>
+        <p>multistep.js contains the javascript code that adds the multistep functionality to the Henryola UI. (The code is adapted from https://codepen.io/designify-me/pen/qrJWpG.)</p>
+      </div>
+    </div>
+    </div>
+
+      <div id="Style" class="w3-row w3-padding-32">  
+      <div class="w3-row">
+      <div class="w3-twothird w3-container">
+        <h1 class="w3-text-teal">style.css</h1>
+        <p>Style.css simply styles the HTML page. </p>
+      </div>
+    </div>
+    </div>
+
+
+    <div id="UI" class="w3-row w3-padding-32">
     <div class="w3-row">
-    <div class="w3-twothird w3-container">
-      <h1 class="w3-text-teal">multistep.js</h1>
-      <p>multistep.js contains the javascript code that adds the multistep functionality to the Henryola UI. (The code is adapted from https://codepen.io/designify-me/pen/qrJWpG.)</p>
+      <div class="w3-twothird w3-container">
+        <h1 class="w3-text-teal">UI.js</h1>
+        <p>UI.js performs three main tasks that are fundamental to receiving and handling user input. These tasks include getting user time availability, getting open Mchenry's room availability, and finding the intersection of those 
+          two sets to allow the user to choose what times they would like to book. It also defines the behavior for our random time slot feature, that books a random time slot from the available spaces.</p>
+      </div>
     </div>
-  </div>
-  
-  
+    </div>
+
+    <div id="availTools" class="w3-row w3-padding-32">
     <div class="w3-row">
-    <div class="w3-twothird w3-container">
-      <h1 class="w3-text-teal">style.css</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum
-        dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <div class="w3-twothird w3-container">
+        <h1 class="w3-text-teal">availTools.js</h1>
+        <p>availTools.js does most of the heavy lifting in terms of scraping the mchenry website for availability. The bulk of which happens in the function getAvail(). This function essentially takes the availability for each prospective
+         room in mchenry, and represents it in a 7 by 32 array. This is then packaged into a json object through a series of helper function calls, that ends with jsonify(). </p>
+      </div>
     </div>
-  </div>
-  
-  
-  
-  <div class="w3-row">
-    <div class="w3-twothird w3-container">
-      <h1 class="w3-text-teal">Heading</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum
-        dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboritation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum
-        dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboritation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum
-        dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboritation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum
-        dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboritation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum
-        dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboritation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum
-        dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboritation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum
-        dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboritation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum
-        dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboritation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum
-        dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboritation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum
-        dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboritation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum
-        dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboritation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum
-        dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboritation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum
-        dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboritation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum
-        dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboritation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum
-        dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
     </div>
+
+    <div id="AJAX" class="w3-row w3-padding-32">
+    <div class="w3-row">
+      <div class="w3-twothird w3-container">
+        <h1 class="w3-text-teal">myAJAXCalls.js</h1>
+        <p>myAJAXCalls.js holds the two ajax calls that deal with getting room availability, and booking a room. As soon as the webpage is loaded, myAJAXCalls requests room data, which is then used by UI.js later.</p>
+      </div>
+    </div>
+    </div>
+
+    <!-- Footer: has links to our henryola site-->
+    <footer id="myDocFooter">
+      <div class="w3-container w3-theme-l2 w3-padding">
+        <h4>Docyola is the documentation page for <a href="https://dune-mandolin.glitch.me/">Henryola</a></h4>
+      </div>
+    </footer>
+
+  <!-- END MAIN -->
   </div>
 
-  <div class="w3-row">
-    <div class="w3-twothird w3-container">
-      <h1 class="w3-text-teal">Heading</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum
-        dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-    </div>
-  </div>
-  <footer id="myDocFooter">
-    <div class="w3-container w3-theme-l2 w3-padding">
-      <h4>Docyola is the documentation page for <a href="https://dune-mandolin.glitch.me/">Henryola</a></h4>
-    </div>
-  </footer>
+  <script>
+  // Get the Sidebar
+  var mySidebar = document.getElementById("mySidebar");
 
-<!-- END MAIN -->
-</div>
+  // Get the DIV with overlay effect
+  var overlayBg = document.getElementById("myOverlay");
 
-<script>
-// Get the Sidebar
-var mySidebar = document.getElementById("mySidebar");
+  // Toggle between showing and hiding the sidebar, and add overlay effect
+  function w3_open() {
+      if (mySidebar.style.display === 'block') {
+          mySidebar.style.display = 'none';
+          overlayBg.style.display = "none";
+      } else {
+          mySidebar.style.display = 'block';
+          overlayBg.style.display = "block";
+      }
+  }
 
-// Get the DIV with overlay effect
-var overlayBg = document.getElementById("myOverlay");
-
-// Toggle between showing and hiding the sidebar, and add overlay effect
-function w3_open() {
-    if (mySidebar.style.display === 'block') {
-        mySidebar.style.display = 'none';
-        overlayBg.style.display = "none";
-    } else {
-        mySidebar.style.display = 'block';
-        overlayBg.style.display = "block";
-    }
-}
-
-// Close the sidebar with the close button
-function w3_close() {
-    mySidebar.style.display = "none";
-    overlayBg.style.display = "none";
-}
-</script>
+  // Close the sidebar with the close button
+  function w3_close() {
+      mySidebar.style.display = "none";
+      overlayBg.style.display = "none";
+  }
+  </script>
 
 </body>
 </html>
