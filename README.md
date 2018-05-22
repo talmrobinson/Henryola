@@ -2,10 +2,9 @@
 Henryola Version 1.0.0  
 Henryola is accessible via our URL -> https://dune-mandolin.glitch.me/
 
-# Documentation
-To view our documentation containing our "Installation and User Guide" visit our documentation page Docryola  
+# Documentation 
 https://dune-mandolin.glitch.me/docs
 
 # Who is Henryola
-Kevin Crum, Sahithi Narla, Richard Selmon, Tal Robinson, Scott Davis<sub><sub>honorable mention</sub></sub>
+Henryola was concieved by Kevin Crum, and coded by Tal Robinson with help from Sahithi Narla and Richard Selmon
 ![Alt Text](https://78.media.tumblr.com/278e8ccbb093da8693487bc8421f4d89/tumblr_nho6biz87b1u1nuzeo1_500.gif)
